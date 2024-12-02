@@ -3,16 +3,31 @@
   <head>
     <title>TempHumiApp</title>
     <link rel="stylesheet" type="text/css" href="main.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script> 
     <script src="main.js"></script>
   </head>
   <body>
-    <div class="temp-humi-canvas">
-      <div class="temp-canvas">
-        <canvas id="temp-canvas" width="400" height="400"></canvas>
+      <div>
+        <label>Temperature (°C)</label>
+        <canvas id="temp-canvas" width="600" height="600"></canvas>
+        <label>Average Temperature:&nbsp;</label>
+        <span id="avg-temp"></span>
+        <span>°C</span>
+        <br>
+        <label>Since last update:&nbsp;</label>
+        <span id="last-update-temp"></span>
+        <span>ms</span>
       </div>
-      <div class="humi-canvas">
-        <canvas id="humi-canvas" width="400" height="400"></canvas>
+      <div>
+        <label>Humidity (%)</label>
+        <canvas id="humi-canvas" width="600" height="600"></canvas>
+        <label>Average Humidity:&nbsp;</label>
+        <span id="avg-humi"></span>
+        <span>%</span>
+        <br>
+        <label>Since last update:&nbsp;</label>
+        <span id="last-update-humi"></span>
+        <span>ms</span>
       </div>
-    </div>
   </body>
 </html>

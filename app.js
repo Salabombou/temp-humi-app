@@ -29,7 +29,7 @@ db.serialize(() => {
     AFTER INSERT ON temperature
     BEGIN
       DELETE FROM temperature 
-      WHERE id NOT IN (SELECT id FROM temperature ORDER BY id DESC LIMIT 1000);
+      WHERE id NOT IN (SELECT id FROM temperature ORDER BY id DESC LIMIT 100);
     END;
   `);
 
@@ -38,7 +38,7 @@ db.serialize(() => {
     AFTER INSERT ON humidity
     BEGIN
       DELETE FROM humidity 
-      WHERE id NOT IN (SELECT id FROM humidity ORDER BY id DESC LIMIT 1000);
+      WHERE id NOT IN (SELECT id FROM humidity ORDER BY id DESC LIMIT 100);
     END;
   `);
 });
@@ -121,7 +121,6 @@ dateRouter.get('/temperature', (req, res) => {
     res.json(rows.map((row) => row.value));
   });
 });
-
 dateRouter.get('/humidity', (req, res) => {
   db.all('SELECT * FROM humidity', (err, rows) => {
     if (err) {
